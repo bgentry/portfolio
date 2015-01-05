@@ -1,6 +1,14 @@
 @import "bourbon";
-@import "bower_components/neat/app/assets/stylesheets/neat";
+@import "neat-helpers";
+@import "neat";
+@import "base";
+
+@import "hero";
 
 html, body {
   margin: 20px;
+}
+
+section {
+  @include outer-container;
 }
