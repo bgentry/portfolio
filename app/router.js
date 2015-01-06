@@ -6,14 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource("asset_classes");
-  this.resource("asset_class", {
-    path: "/asset_classes/:asset_class_id"
+  this.resource("asset_classes", function() {
+    this.resource("asset_class", { path: "/:asset_class_id" });
   });
 
-  this.resource("portfolios");
-  this.resource("portfolio", {
-    path: "/portfolios/:portfolio_id"
+  this.resource("portfolios", function() {
+    this.resource("portfolio", { path: "/:portfolio_id" });
   });
 });
 
