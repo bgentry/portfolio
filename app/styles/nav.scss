@@ -126,6 +126,10 @@ nav.navigation {
       &:hover {
         color: $navigation-color-hover;
       }
+
+      &.active {
+        color: saturate($navigation-color, 50);
+      }
     }
   }
 
