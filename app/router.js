@@ -11,6 +11,8 @@ Router.map(function() {
   this.resource("asset_class", {
     path: "/asset_classes/:asset_class_id"
   });
+
+  this.resource("funds");
 });
 
 export default Router;

@@ -1,1 +1,20 @@
 <p>Asset class name: {{name}}</p>
+
+<table class="table-borders">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Expense Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each fund in funds}}
+      <tr>
+        <td>{{fund.name}}</td>
+        <td>{{fund.symbol}}</td>
+        <td>{{fund.expenseRatio}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

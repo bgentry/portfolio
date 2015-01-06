@@ -1,4 +1,5 @@
-{{#each}}
-  <p>AHHHH</p>
-  <p>{{#link-to 'asset_class' this}}{{name}}{{/link-to}}</p>
-{{/each}}
+<ul>
+  {{#each}}
+    <li>{{#link-to 'asset_class' this}}{{name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
