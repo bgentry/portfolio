@@ -1,0 +1,9 @@
+<h2 id="title">Portfolios</h2>
+
+<hr>
+
+<ul>
+  {{#each}}
+    <li>{{#link-to 'portfolio' this}}{{name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
