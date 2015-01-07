@@ -12,6 +12,7 @@ Router.map(function() {
 
   this.resource("portfolios", function() {
     this.resource("portfolio", { path: "/:portfolio_id" });
+    this.route("new");
   });
 });
 
