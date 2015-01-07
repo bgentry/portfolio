@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     controller.set('model', model);
 
-    var allAssetClasses = this.store.find('portfolio');
+    var allAssetClasses = this.store.find('asset-class');
     allAssetClasses.then(function(data) {
       controller.set('allAssetClasses', data);
     });

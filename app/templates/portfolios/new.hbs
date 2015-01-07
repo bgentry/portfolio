@@ -13,7 +13,7 @@
     <p>
       <label for="asset_class_1">Asset class:</label>
       <select name="asset_class_1">
-        <option selected disabled value=''></option>
+        <option selected="selected" disabled="disabled" value=''></option>
         {{#each assetClass in allAssetClasses}}
         <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
         {{/each}}
