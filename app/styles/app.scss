@@ -8,3 +8,7 @@
 section {
   @include outer-container;
 }
+
+.button {
+  @extend %button;
+}
