@@ -1,7 +1,19 @@
 var PORTFOLIO_FIXTURES = [{
   id: "1",
   name: "Retirement",
-  allocation_ids: ['1', '2', '3']
+  allocations: [{
+    id: "1",
+    asset_class_id: "1",
+    weight: 0.3
+  }, {
+    id: "2",
+    asset_class_id: "2",
+    weight: 0.5,
+  }, {
+    id: "3",
+    asset_class_id: "3",
+    weight: 0.2,
+  }]
 }, {
   id: "2",
   name: "Safety Net",
