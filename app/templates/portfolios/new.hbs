@@ -1,53 +1,48 @@
+<h2>New Portfolio</h2>
+<p>Enter a name for your portfolio, then allocate percentages to the various asset classes.</p>
 
-<fieldset>
-  <form>
-    <h2>New Portfolio</h2>
-
-    <p>Enter a name for your portfolio, then allocate percentages to the various asset classes.</p>
-
+<form {{action "create" this on="submit"}}>
+  <fieldset>
     <p>
       <label for="name">Name:</label>
       {{input id="name" value=name}}
     </p>
 
+    <hr/>
+
     <p>
-      <label for="asset_class_1">Asset class:</label>
-      <select name="asset_class_1">
+      <label for="allocation_1_asset_class_1">Asset class:</label>
+      <select id="asset_class_1">
         <option selected="selected" disabled="disabled" value=''></option>
         {{#each assetClass in allAssetClasses}}
-        <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
+          <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
+        {{/each}}
+      </select>
+      <label for="weight_1">Weight:</label>
+      {{input id="weight_1" value=weight type="number" min="0" max="100"}}
+    </p>
+
+    <hr/>
+
+    <p>
+      TODO: make this only show the remaining, unselected asset classes
+      <label for="asset_class_2">Asset class:</label>
+      <select id="asset_class_2">
+        <option selected="selected" disabled="disabled" value=''></option>
+        {{#each assetClass in allAssetClasses}}
+          <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
         {{/each}}
       </select>
     </p>
-
     <p>
-      <label for="radio_buttons">Radio Buttons:</label>
-      <label>
-        <input type="radio" class="radio" name="radio_button" value="radio_1"> Radio 1
-      </label>
-      <label>
-        <input type="radio" class="radio" name="radio_button" value="radio_2"> Radio 2
-      </label>
-      <label>
-        <input type="radio" class="radio" name="radio_button" value="radio_3"> Radio 3
-      </label>
+      <label for="weight_2">Weight:</label>
+      {{input id="weight_2" value=weight type="number" min="0" max="100"}}
     </p>
 
-    <p>
-      <label for="checkboxes">Checkboxes:</label>
-      <label>
-        <input type="checkbox" class="checkbox" name="checkboxes" value="check_1"> Checkbox 1
-      </label>
-      <label>
-        <input type="checkbox" class="checkbox" name="checkboxes" value="check_2"> Checkbox 2
-      </label>
-      <label>
-        <input type="checkbox" class="checkbox" name="checkboxes" value="check_3"> Checkbox 3
-      </label>
-    </p>
+    <hr/>
 
     <p>
       <input class="button" type="submit" value="Submit">
     </p>
-  </form>
-</fieldset>
+  </fieldset>
+</form>
