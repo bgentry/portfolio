@@ -24,7 +24,9 @@ var PORTFOLIO_FIXTURES = [{
 
 module.exports = function(app) {
   var express = require('express');
+  var bodyParser = require('body-parser');
   var portfoliosRouter = express.Router();
+  portfoliosRouter.use(bodyParser.json());
 
   var getPortfolio = function(id) {
     return PORTFOLIO_FIXTURES.filter(function(portfolio) {
@@ -39,7 +41,10 @@ module.exports = function(app) {
   });
 
   portfoliosRouter.post('/', function(req, res) {
-    res.status(201).end();
+    body = req.body;
+    body.portfolio.id = PORTFOLIO_FIXTURES.length+1;
+    PORTFOLIO_FIXTURES.push(body.portfolio)
+    res.status(201).send(body);
   });
 
   portfoliosRouter.get('/:id', function(req, res) {
