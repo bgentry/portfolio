@@ -5,6 +5,27 @@ export default Ember.Route.extend(DataRoute, {
   model: function(params) {
     return this.store.createRecord('portfolio', params);
   },
+  resetController: function() {
+    this._super();
+
+    // Special work to cleanup after unsaved children. In this case, we need to
+    // clean up the allocations when they weren't saved.
+    var model = this.get('controller.model');
+    model.eachRelationship(function(name, descriptor) {
+      if(descriptor.kind === "hasMany") {
+        var items = model.get(name);
+        items.forEach(function(item) {
+          if(item !== null && !item.get('isDeleted')) {
+            if (item.get('isNew')) {
+              item.deleteRecord();
+            } else {
+              item.rollback();
+            }
+          }
+        });
+      }
+    });
+  },
   setupController: function(controller, model) {
     controller.set('model', model);
 

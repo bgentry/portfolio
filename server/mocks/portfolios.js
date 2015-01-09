@@ -41,9 +41,14 @@ module.exports = function(app) {
   });
 
   portfoliosRouter.post('/', function(req, res) {
-    body = req.body;
+    var body = req.body;
     body.portfolio.id = PORTFOLIO_FIXTURES.length+1;
-    PORTFOLIO_FIXTURES.push(body.portfolio)
+    var minAllocID = 4;
+    body.portfolio.allocations.forEach(function(allocation) {
+      allocation.id = minAllocID;
+      minAllocID++;
+      allocation.portfolio_id = body.portfolio.id;
+    });
     res.status(201).send(body);
   });
 

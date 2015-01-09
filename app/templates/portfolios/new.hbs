@@ -8,41 +8,49 @@
       {{input id="name" value=name}}
     </p>
 
+    <h3>Allocations:</h3>
     <hr/>
 
-    <p>
-      <label for="allocation_1_asset_class_1">Asset class:</label>
-      <select id="asset_class_1">
-        <option selected="selected" disabled="disabled" value=''></option>
-        {{#each assetClass in allAssetClasses}}
-          <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
+    <table class="table-borders">
+      <thead>
+        <tr>
+          <th>Asset Class</th>
+          <th>Target Weight</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each allocation in allocations}}
+          <tr>
+            <td>
+              {{#link-to 'asset_class' allocation.assetClass}}
+                {{allocation.assetClass.name}}
+              {{/link-to}}
+            </td>
+            <td>
+              {{input value=allocation.weight type="number" min="0" max="100"}}
+            </td>
+            <td>
+              <a class="button" href="#" {{action 'deleteRecord' target=allocation}}>x</a>
+            </td>
+          </tr>
         {{/each}}
-      </select>
-      <label for="weight_1">Weight:</label>
-      {{input id="weight_1" value=weight type="number" min="0" max="100"}}
-    </p>
+      </tbody>
+    </table>
 
+    <p>
+      {{view "select"
+             content=allAssetClasses
+             optionValuePath="content"
+             optionLabelPath="content.name"
+             prompt="Choose an asset class"
+             selection=assetClassToAdd}}
+      <a class="button" {{action 'addAllocation' this}}>+</a>
+    </p>
     <hr/>
 
     <p>
-      TODO: make this only show the remaining, unselected asset classes
-      <label for="asset_class_2">Asset class:</label>
-      <select id="asset_class_2">
-        <option selected="selected" disabled="disabled" value=''></option>
-        {{#each assetClass in allAssetClasses}}
-          <option {{bind-attr value=assetClass.id}}>{{assetClass.name}}</option>
-        {{/each}}
-      </select>
-    </p>
-    <p>
-      <label for="weight_2">Weight:</label>
-      {{input id="weight_2" value=weight type="number" min="0" max="100"}}
-    </p>
-
-    <hr/>
-
-    <p>
-      <input class="button" type="submit" value="Submit">
+      <input class="button" type="submit" value="Save">
     </p>
   </fieldset>
 </form>
