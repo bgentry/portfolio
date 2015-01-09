@@ -10,7 +10,7 @@ export default Ember.ObjectController.extend({
     var portfolio = this.get('model');
     var allocation = this.store.createRecord('allocation', {
       assetClass: assetClass,
-      portfolio: portfolio,
+      portfolio: portfolio
     });
     portfolio.get('allocations').addObject(allocation);
     this.set('assetClassToAdd', null);
