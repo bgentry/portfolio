@@ -4,7 +4,7 @@ var PORTFOLIO_FIXTURES = [{
   allocations: [{
     id: "1",
     asset_class_id: "1",
-    weight: 0.3
+    weight: 0.355
   }, {
     id: "2",
     asset_class_id: "2",
@@ -12,7 +12,7 @@ var PORTFOLIO_FIXTURES = [{
   }, {
     id: "3",
     asset_class_id: "3",
-    weight: 0.2
+    weight: 0.145
   }]
 }, {
   id: "2",
