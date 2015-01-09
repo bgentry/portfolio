@@ -9,6 +9,6 @@ section {
   @include outer-container;
 }
 
-.button {
+button, .button {
   @extend %button;
 }
