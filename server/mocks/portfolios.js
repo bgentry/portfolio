@@ -41,6 +41,7 @@ module.exports = function(app) {
   });
 
   portfoliosRouter.post('/', function(req, res) {
+    console.log("BODY:", req.body);
     var body = req.body;
     body.portfolio.id = PORTFOLIO_FIXTURES.length+1;
     var minAllocID = 4;
@@ -49,6 +50,7 @@ module.exports = function(app) {
       minAllocID++;
       allocation.portfolio_id = body.portfolio.id;
     });
+    console.log(body.portfolio);
     res.status(201).send(body);
   });
 

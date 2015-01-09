@@ -1,17 +1,24 @@
 # Portfolio
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is an Ember.js application that I'm building to help manage financial
+portfolios. I intend for it to:
 
-## Prerequisites
+* track multiple portfolio allocations
+* track current holdings in each portfolio, including cost basis info
+* make recommendations for periodic rebalancing
+* make recommendations for tax loss harvesting opportunities
 
-You will need the following things properly installed on your computer.
+A lot of this will be modeled after Betterment. I like their service, but can't
+take advantage of their tax loss harvesting without transferring all assets into
+their system.
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+This is my first real Ember.js project. I've opted for ember-cli and ember-data
+as well. There's a real shortage of material describing best practices for
+simple CRUD apps with ember-data, but I've done my best to synthesize what I
+could find. Feedback welcome :)
+
+As of now, the app's backend is just a mock server. At some point, I'll switch
+that out for an actual API server in Rails, Go, or Node.
 
 ## Installation
 
@@ -25,10 +32,6 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
 ### Running Tests
 
 * `ember test`
@@ -41,13 +44,4 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+TODO
