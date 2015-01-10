@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
+  allAssetClasses: function() {
+    return this.store.find('asset-class');
+  }.property(),
+
   assetClassToAdd: null,
   onAssetClassToAddChange:function(){
     var assetClass = this.get('assetClassToAdd');
@@ -16,9 +20,10 @@ export default Ember.ObjectController.extend({
     this.set('assetClassToAdd', null);
   }.observes('assetClassToAdd'),
 
+  remainingAssetClasses: Ember.computed.setDiff('allAssetClasses', 'model.assetClasses'),
+
   actions: {
-    create: function(params) {
-      console.log("CREATE PARAMS: ", params);
+    create: function() {
       var newPortfolio = this.get('model');
       var self = this;
       newPortfolio.save().then(function() {

@@ -31,10 +31,5 @@ export default Ember.Route.extend(DataRoute, {
   },
   setupController: function(controller, model) {
     controller.set('model', model);
-
-    var allAssetClasses = this.store.find('asset-class');
-    allAssetClasses.then(function(data) {
-      controller.set('allAssetClasses', data);
-    });
   }
 });
