@@ -18,7 +18,7 @@ export default Ember.Route.extend(DataRoute, {
       if(descriptor.kind === "hasMany") {
         var items = model.get(name);
         items.forEach(function(item) {
-          if(item !== null && !item.get('isDeleted')) {
+          if (typeof item !== 'undefined' && !item.get('isDeleted')) {
             if (item.get('isNew')) {
               item.deleteRecord();
             } else {
