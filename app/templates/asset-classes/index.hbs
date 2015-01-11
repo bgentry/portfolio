@@ -1,7 +1,7 @@
 <h2 id="title">Asset Classes</h2>
 
 <ul>
-  {{#each}}
-    <li>{{#link-to 'asset_class' this}}{{name}}{{/link-to}}</li>
+  {{#each assetClass in model}}
+    <li>{{#link-to 'asset_class' assetClass}}{{assetClass.name}}{{/link-to}}</li>
   {{/each}}
 </ul>
