@@ -47,8 +47,12 @@
       {{#each lot in lots}}
         <tr>
           <td>{{lot.fund.symbol}}</td>
-          <td>{{lot.dateAcquired}}</td>
-          <td>{{lot.dateSold}}</td>
+          <td>{{moment lot.dateAcquired 'YYYY-MM-DD'}}</td>
+          <td>
+            {{#if lot.dateSold}}
+              {{moment lot.dateSold 'YYYY-MM-DD'}}
+            {{/if}}
+          </td>
           <td>{{lot.quantity}}</td>
           <td>{{lot.shareCost}}</td>
           <td>{{lot.value}}</td>

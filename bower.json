@@ -14,6 +14,7 @@
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
     "neat": "~1.7.1",
-    "bourbon": "3.2.3"
+    "bourbon": "3.2.3",
+    "ember-cli-moment-shim": "~0.0.2"
   }
 }
