@@ -4,23 +4,59 @@
 
 <h3>Allocations</h3>
 
-<table class="table-borders">
-  <thead>
-    <tr>
-      <th>Asset Class</th>
-      <th>Target Weight</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each allocation in allocations}}
+{{#if allocations}}
+  <table class="table-striped">
+    <thead>
       <tr>
-        <td>
-          {{#link-to 'asset_class' allocation.assetClass}}
-            {{allocation.assetClass.name}}
-          {{/link-to}}
-        </td>
-        <td>{{format-percentage allocation.weight}}</td>
+        <th>Asset Class</th>
+        <th>Target Weight</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each allocation in allocations}}
+        <tr>
+          <td>
+            {{#link-to 'asset_class' allocation.assetClass}}
+              {{allocation.assetClass.name}}
+            {{/link-to}}
+          </td>
+          <td>{{format-percentage allocation.weight}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+<p>No allocations.</p>
+{{/if}}
+
+<h3>Lots</h3>
+
+{{#if lots}}
+  <table class="table-striped">
+    <thead>
+      <tr>
+        <th>Fund</th>
+        <th>Date Acquired</th>
+        <th>Date Sold</th>
+        <th>Quantity</th>
+        <th>Share Cost</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each lot in lots}}
+        <tr>
+          <td>{{lot.fund.symbol}}</td>
+          <td>{{lot.dateAcquired}}</td>
+          <td>{{lot.dateSold}}</td>
+          <td>{{lot.quantity}}</td>
+          <td>{{lot.shareCost}}</td>
+          <td>{{lot.value}}</td>
+        </tr>
+      {{else}}
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+<p>No lots recorded.</p>
+{{/if}}
