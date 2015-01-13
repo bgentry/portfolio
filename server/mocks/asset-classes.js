@@ -8,6 +8,10 @@ var ASSET_CLASS_FIXTURES = [{
 }, {
   id: "3",
   name: "Emerging Markets"
+}, {
+  id: "4",
+  name: "Commodities",
+  fund_ids: ['3', '4']
 }];
 
 module.exports = function(app) {

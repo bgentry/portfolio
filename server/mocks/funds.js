@@ -3,13 +3,33 @@ var FUND_FIXTURES = [{
   asset_class_id: "1",
   name: 'Vanguard Total Stock Market ETF',
   symbol: 'VTI',
-  expense_ratio: '0.05'
+  expense_ratio: 0.05,
+  price: 104.28,
+  price_updated_at: "2015-01-12T21:00:00Z"
 }, {
   id: "2",
   asset_class_id: "1",
   name: 'Schwab US Broad Market ETF',
   symbol: 'SCHB',
-  expense_ratio: '0.04'
+  expense_ratio: 0.04,
+  price: 49.00,
+  price_updated_at: "2015-01-12T21:00:00Z"
+}, {
+  id: "3",
+  asset_class_id: "4",
+  name: 'iPath® Dow Jones-UBS Commodity Index Total Return(SM) ETN',
+  symbol: 'DJP',
+  expense_ratio: 0.75,
+  price: 28.78,
+  price_updated_at: "2015-01-12T21:00:00Z"
+}, {
+  id: "4",
+  asset_class_id: "4",
+  name: 'Vanguard Energy ETF',
+  symbol: 'VDE',
+  expense_ratio: 0.12,
+  price: 104.81,
+  price_updated_at: "2015-01-12T21:00:00Z"
 }]
 
 module.exports = function(app) {

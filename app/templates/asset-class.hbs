@@ -8,6 +8,8 @@
       <th>Name</th>
       <th>Symbol</th>
       <th>Expense Ratio</th>
+      <th>Price</th>
+      <th>Price Updated At</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +18,12 @@
         <td>{{fund.name}}</td>
         <td>{{fund.symbol}}</td>
         <td>{{fund.expenseRatio}}</td>
+        <td>{{fund.price}}</td>
+        <td>
+          {{#if fund.priceUpdatedAt}}
+            {{moment fund.priceUpdatedAt 'MMM DD YYYY, h:mm:ss a'}}
+          {{/if}}
+        </td>
       </tr>
     {{/each}}
   </tbody>
