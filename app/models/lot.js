@@ -10,7 +10,7 @@ export default DS.Model.extend({
   quantity: DS.attr('number'),
   shareCost: DS.attr('number'),
 
-  value: function() {
+  totalCost: function() {
     var shareCost = this.get('shareCost'),
        quantity = this.get('quantity');
     if (typeof(shareCost) === 'undefined' || typeof(quantity) === 'undefined') {
