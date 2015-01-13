@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import currency from 'currency';
 
 export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
@@ -10,6 +11,12 @@ export default DS.Model.extend({
   shareCost: DS.attr('number'),
 
   value: function() {
-    return this.get('quantity') * this.get('shareCost');
+    var shareCost = this.get('shareCost'),
+       quantity = this.get('quantity');
+    if (typeof(shareCost) === 'undefined' || typeof(quantity) === 'undefined') {
+      return null;
+    }
+
+    return currency(this.get('shareCost')).multiply(this.get('quantity')).format();
   }.property('quantity', 'shareCost'),
 });
