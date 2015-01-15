@@ -18,7 +18,7 @@ var PORTFOLIO_FIXTURES = [{
     asset_class_id: "4",
     weight: 0.15
   }],
-  lots: ["1", "2", "3", "4", "5"]
+  lots: ["1", "2", "3", "4", "5", "6", "7", "8"]
 }, {
   id: "2",
   name: "Safety Net",
