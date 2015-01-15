@@ -12,7 +12,7 @@ var PORTFOLIO_FIXTURES = [{
   }, {
     id: "3",
     asset_class_id: "3",
-    weight: 0.15
+    weight: 0.20
   }, {
     id: "4",
     asset_class_id: "4",
