@@ -7,7 +7,9 @@ export default DS.Model.extend({
   allocations: DS.hasMany('allocations'),
   lots: DS.hasMany('lots', {async: true}),
 
-  assetClasses: Ember.computed.mapBy('allocations', 'assetClass'),
+  // TODO: the .content here is a workaround for an open Ember issue. Remove
+  // it after https://github.com/emberjs/data/issues/2689 is resolved.
+  assetClasses: Ember.computed.mapBy('allocations', 'assetClass.content'),
   openLots: Ember.computed.filterBy('lots', 'isOpen', true),
   openLotValues: Ember.computed.mapBy('openLots', 'marketValue'),
   // TODO: replace w/ a currency.js computed property
