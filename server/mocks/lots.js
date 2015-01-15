@@ -36,6 +36,7 @@ var LOT_FIXTURES = [{
   fund_id: "2",
   date_acquired: "2014-12-29T20:30:09Z",
   date_sold: "2015-01-08T19:30:09Z",
+  proceeds: 3552,
   share_cost: 50.579,
   quantity: 74,
 }, {

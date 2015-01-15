@@ -7,6 +7,7 @@ export default DS.Model.extend({
 
   dateAcquired: DS.attr('date'),
   dateSold: DS.attr('date'),
+  proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
   shareCost: DS.attr('currency'),
 
@@ -34,12 +35,20 @@ export default DS.Model.extend({
     return shareCost.multiply(quantity);
   }.property('quantity', 'shareCost'),
   valueChange: function() {
-    var marketValue = this.get('marketValue'),
-      totalCost = this.get('totalCost');
-    if (marketValue == null || totalCost == null) {
-      return null;
+    var isOpen = this.get('isOpen'),
+        totalCost = this.get('totalCost');
+    if (isOpen) {
+      var marketValue = this.get('marketValue');
+      if (marketValue == null) {
+        return null;
+      }
+      return marketValue.subtract(totalCost || 0);
     }
 
-    return marketValue.subtract(totalCost);
-  }.property('marketValue', 'totalCost')
+    var proceeds = this.get('proceeds');
+    if (proceeds == null) {
+      return null;
+    }
+    return proceeds.subtract(totalCost || 0);
+  }.property('isOpen', 'marketValue', 'proceeds', 'totalCost')
 });
