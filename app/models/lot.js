@@ -14,6 +14,7 @@ export default DS.Model.extend({
   fundPrice: Ember.computed.alias('fund.price'),
   isOpen: Ember.computed.not('dateSold'),
   isClosed: Ember.computed.bool('dateSold'),
+  isLoss: Ember.computed.lt('valueChange', 0),
 
   // TODO: clean all these up to use well-factored computed properties:
   marketValue: function() {

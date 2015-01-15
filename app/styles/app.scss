@@ -13,3 +13,11 @@ section {
 button, .button {
   @extend %button;
 }
+
+.green {
+  color: #72BFBF;
+}
+
+.red {
+  color: tomato;
+}

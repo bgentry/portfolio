@@ -72,7 +72,11 @@
               {{format-currency lot.proceeds}}
             {{/if}}
           </td>
-          <td>{{format-currency lot.valueChange}}</td>
+          <td>
+            <span {{bind-attr class="lot.isLoss:red:green"}}>
+              {{format-currency lot.valueChange}}
+            </span>
+          </td>
         </tr>
       {{else}}
       {{/each}}
