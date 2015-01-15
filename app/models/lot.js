@@ -8,7 +8,7 @@ export default DS.Model.extend({
   dateAcquired: DS.attr('date'),
   dateSold: DS.attr('date'),
   quantity: DS.attr('number'),
-  shareCost: DS.attr('number'),
+  shareCost: DS.attr('currency'),
 
   totalCost: function() {
     var shareCost = this.get('shareCost'),
@@ -17,6 +17,6 @@ export default DS.Model.extend({
       return null;
     }
 
-    return currency(this.get('shareCost')).multiply(this.get('quantity')).format();
+    return shareCost.multiply(quantity);
   }.property('quantity', 'shareCost'),
 });

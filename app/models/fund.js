@@ -6,6 +6,6 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   symbol: DS.attr('string'),
   expenseRatio: DS.attr('number'),
-  price: DS.attr('number'),
+  price: DS.attr('currency'),
   priceUpdatedAt: DS.attr('date'),
 });
