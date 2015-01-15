@@ -1,7 +1,7 @@
 <h2 id="title">Asset Classes</h2>
 
 <ul>
-  {{#each assetClass in model}}
+  {{#each assetClass in controller}}
     <li>{{#link-to 'asset_class' assetClass}}{{assetClass.name}}{{/link-to}}</li>
   {{/each}}
 </ul>

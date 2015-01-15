@@ -3,7 +3,7 @@
 <hr>
 
 <ul>
-  {{#each portfolio in this}}
+  {{#each portfolio in controller}}
     <li>{{#link-to 'portfolio' portfolio}}{{portfolio.name}}{{/link-to}}</li>
   {{/each}}
 </ul>

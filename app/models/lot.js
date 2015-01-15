@@ -5,6 +5,7 @@ export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
   fund: DS.belongsTo('fund', {async: true}),
 
+  assetClass: Ember.computed.alias('fund.assetClass'),
   dateAcquired: DS.attr('date'),
   dateSold: DS.attr('date'),
   proceeds: DS.attr('currency'),
