@@ -54,8 +54,8 @@
             {{/if}}
           </td>
           <td>{{lot.quantity}}</td>
-          <td>{{lot.shareCost}}</td>
-          <td>{{lot.totalCost}}</td>
+          <td>{{format-currency lot.shareCost}}</td>
+          <td>{{format-currency lot.totalCost}}</td>
         </tr>
       {{else}}
       {{/each}}
