@@ -1,6 +1,13 @@
 <h2 id="title">Portfolio: {{name}}</h2>
 
-<hr>
+<hr/>
+
+<dl>
+  <dt>Total Value</dt>
+  <dd>{{format-currency totalValue}}</dd>
+</dl>
+
+<hr/>
 
 <h3>Allocations</h3>
 
@@ -41,6 +48,8 @@
         <th>Quantity</th>
         <th>Share Cost</th>
         <th>Total Cost</th>
+        <th>Market Value</th>
+        <th>Gain / Loss</th>
       </tr>
     </thead>
     <tbody>
@@ -56,6 +65,8 @@
           <td>{{lot.quantity}}</td>
           <td>{{format-currency lot.shareCost}}</td>
           <td>{{format-currency lot.totalCost}}</td>
+          <td>{{format-currency lot.marketValue}}</td>
+          <td>{{format-currency lot.valueChange}}</td>
         </tr>
       {{else}}
       {{/each}}
