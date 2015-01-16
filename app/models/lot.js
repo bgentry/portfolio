@@ -17,6 +17,22 @@ export default DS.Model.extend({
   isClosed: Ember.computed.bool('dateSold'),
   isLoss: Ember.computed.lt('valueChange', 0),
 
+  ownedDuration: function() {
+    var dateAcquired = this.get('dateAcquired'),
+        dateSold = this.get('dateSold');
+    if (!dateAcquired) {
+      return moment.duration();
+    }
+    if (!dateSold) {
+      dateSold = new Date();
+    }
+    dateAcquired = moment(dateAcquired).startOf('day');
+    dateSold = moment(dateSold).startOf('day');
+    return moment.duration(dateSold - dateAcquired);
+  }.property('dateAcquired', 'dateSold'),
+  isShortTerm: Ember.computed.lt('ownedDuration', moment.duration(1, 'year')),
+  isLongTerm: Ember.computed.gte('ownedDuration', moment.duration(1, 'year')),
+
   // TODO: clean all these up to use well-factored computed properties:
   marketValue: function() {
     var fundPrice = this.get('fundPrice'),

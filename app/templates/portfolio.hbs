@@ -36,9 +36,54 @@
 <p>No allocations.</p>
 {{/if}}
 
-<h3>Lots</h3>
+<h3>Open Lots</h3>
 
-{{#if lots}}
+{{#if openLots}}
+  <table class="table-striped">
+    <thead>
+      <tr>
+        <th>Fund</th>
+        <th>Date Acquired</th>
+        <th>Quantity</th>
+        <th>Share Cost</th>
+        <th>Total Cost</th>
+        <th>Market Value</th>
+        <th>Gain / Loss</th>
+        <th>Term</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each lot in openLots}}
+        <tr>
+          <td>{{lot.fund.symbol}}</td>
+          <td>{{moment lot.dateAcquired 'YYYY-MM-DD'}}</td>
+          <td>{{lot.quantity}}</td>
+          <td>{{format-currency lot.shareCost}}</td>
+          <td>{{format-currency lot.totalCost}}</td>
+          <td>{{format-currency lot.marketValue}}</td>
+          <td>
+            <span {{bind-attr class="lot.isLoss:red:green"}}>
+              {{format-currency lot.valueChange}}
+            </span>
+          </td>
+          <td>
+            {{#if lot.isShortTerm}}
+              Short
+            {{else}}
+              Long
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+<p>No open lots.</p>
+{{/if}}
+
+<h3>Closed Lots</h3>
+
+{{#if closedLots}}
   <table class="table-striped">
     <thead>
       <tr>
@@ -48,39 +93,37 @@
         <th>Quantity</th>
         <th>Share Cost</th>
         <th>Total Cost</th>
-        <th>Market Value or Proceeds</th>
+        <th>Proceeds</th>
         <th>Gain / Loss</th>
+        <th>Term</th>
       </tr>
     </thead>
     <tbody>
-      {{#each lot in lots}}
+      {{#each lot in closedLots}}
         <tr>
           <td>{{lot.fund.symbol}}</td>
           <td>{{moment lot.dateAcquired 'YYYY-MM-DD'}}</td>
-          <td>
-            {{#if lot.dateSold}}
-              {{moment lot.dateSold 'YYYY-MM-DD'}}
-            {{/if}}
-          </td>
+          <td>{{moment lot.dateSold 'YYYY-MM-DD'}}</td>
           <td>{{lot.quantity}}</td>
           <td>{{format-currency lot.shareCost}}</td>
           <td>{{format-currency lot.totalCost}}</td>
-          <td>
-            {{#if lot.isOpen}}
-              {{format-currency lot.marketValue}}
-            {{else}}
-              {{format-currency lot.proceeds}}
-            {{/if}}
-          </td>
+          <td>{{format-currency lot.proceeds}}</td>
           <td>
             <span {{bind-attr class="lot.isLoss:red:green"}}>
               {{format-currency lot.valueChange}}
             </span>
+          </td>
+          <td>
+            {{#if lot.isShortTerm}}
+              Short
+            {{else}}
+              Long
+            {{/if}}
           </td>
         </tr>
       {{/each}}
     </tbody>
   </table>
 {{else}}
-<p>No lots recorded.</p>
+<p>No closed lots recorded.</p>
 {{/if}}
