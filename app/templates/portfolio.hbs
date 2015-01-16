@@ -55,7 +55,7 @@
     <tbody>
       {{#each lot in openLots}}
         <tr>
-          <td>{{lot.fund.symbol}}</td>
+          <td>{{lot.symbol}}</td>
           <td>{{moment lot.dateAcquired 'YYYY-MM-DD'}}</td>
           <td>{{lot.quantity}}</td>
           <td>{{format-currency lot.shareCost}}</td>

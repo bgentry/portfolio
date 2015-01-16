@@ -11,6 +11,7 @@ export default DS.Model.extend({
   proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
   shareCost: DS.attr('currency'),
+  symbol: Ember.computed.alias('fund.symbol'),
 
   fundPrice: Ember.computed.alias('fund.price'),
   isOpen: Ember.computed.not('dateSold'),
