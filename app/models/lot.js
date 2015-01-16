@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import moment from 'moment';
 
 export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
