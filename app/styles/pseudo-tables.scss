@@ -1,0 +1,65 @@
+.holdings-table {
+  width: 800px;
+
+  .row-container {
+    clear: both;
+    display: table;
+    padding: 11px 0 6px;
+    width: 100%;
+
+    .cell {
+      float: left;
+    }
+
+    .holding-name {
+      width: 300px;
+    }
+
+    .current-weight, .target-weight {
+      text-align: right;
+      width: 120px;
+    }
+
+    .current-value {
+      float: right;
+      text-align: right;
+    }
+  }
+
+  .table-head {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .table-head, .holdings-list {
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+  .holdings-list {
+    color: #333;
+    font-size: 14px;
+
+    .row-container:hover {
+      color: black;
+      font-weight: bold;
+    }
+  }
+  .table-footer {
+    border-top: 1px solid #bbb;
+    text-transform: uppercase;
+  }
+
+  .fund-summary .holding-name {
+    padding-left: 10px;
+  }
+
+  .lot {
+    .holding-name {
+      padding-left: 20px;
+    }
+    .value-change {
+      text-align: right;
+      width: 100px;
+    }
+  }
+}

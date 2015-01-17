@@ -1,20 +1,18 @@
-<tr {{action 'toggleIsExpanded'}}>
-  <td>
-    {{#link-to 'asset_class' allocation.assetClass}}
-      {{allocation.assetClassName}}
-    {{/link-to}}
-  </td>
-  <td>{{format-percentage currentWeight}}</td>
-  <td>-</td>
-  <td>{{format-percentage targetWeight}}</td>
-  <td>{{format-currency totalValue}}</td>
-  <td>-</td>
-  <td>-</td>
-  <td>-</td>
-</tr>
+<div class="asset-class" {{action 'toggleIsExpanded'}}>
+  <div class="row-container asset-class-summary">
+    <div class="cell holding-name">
+      {{#link-to 'asset_class' allocation.assetClass}}
+        {{assetClassName}}
+      {{/link-to}}
+    </div>
+    <div class="cell current-weight">{{format-percentage currentWeight}}</div>
+    <div class="cell target-weight">{{format-percentage targetWeight}}</div>
+    <div class="cell current-value">{{format-currency totalValue}}</div>
+  </div>
 
-{{#if isExpanded}}
-  {{#each fund in funds}}
-    {{render "allocationFundItem" fund}}
-  {{/each}}
-{{/if}}
+  {{#if isExpanded}}
+    {{#each fund in funds}}
+      {{render "allocationFundItem" fund}}
+    {{/each}}
+  {{/if}}
+</div>

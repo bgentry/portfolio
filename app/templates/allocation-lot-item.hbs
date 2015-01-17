@@ -1,14 +1,11 @@
-<tr>
-  <td>{{symbol}}: {{fundName}}</td>
-  <td>{{format-percentage currentWeight}}</td>
-  <td>{{quantity}}</td>
-  <td>-</td>
-  <td>{{format-currency marketValue}}</td>
-  <td>{{format-currency totalCost}}</td>
-  <td>
+<div class="row-container lot">
+  <div class="cell holding-name">{{moment dateAcquired 'YYYY-MM-DD'}}</div>
+  <div class="cell current-weight">{{format-percentage currentWeight}}</div>
+  <div class="cell target-weight shares">{{quantity}} shares</div>
+  <div class="cell value-change">
     <span {{bind-attr class="isLoss:red:green"}}>
       {{format-currency valueChange}}
     </span>
-  </td>
-  <td>{{moment dateAcquired 'YYYY-MM-DD'}}</td>
-</tr>
+  </div>
+  <div class="cell current-value">{{format-currency marketValue}}</div>
+</div>

@@ -22,8 +22,13 @@ export default Ember.ObjectController.extend({
     });
   }.property("model.id", "allLots.@each.fund"),
 
+  lotQuantities: Ember.computed.mapBy('lots', 'quantity'),
   lotValues: Ember.computed.mapBy('lots', 'marketValue'),
+  name: function() {
+    return this.get('symbol') + ": " + this.model.get('name');
+  }.property('model.name', 'symbol'),
   portfolioValue: Ember.computed.alias('controllers.portfolio.totalValue'),
+  quantity: Ember.computed.sum('lotQuantities'),
 
   // TODO: replace w/ a currency.js computed property
   totalValue: function() {
