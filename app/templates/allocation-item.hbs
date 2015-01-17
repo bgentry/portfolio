@@ -1,4 +1,4 @@
-<tr>
+<tr {{action 'toggleIsExpanded'}}>
   <td>
     {{#link-to 'asset_class' allocation.assetClass}}
       {{allocation.assetClassName}}
@@ -13,6 +13,8 @@
   <td>-</td>
 </tr>
 
-{{#each fund in funds}}
-  {{render "allocationFundItem" fund}}
-{{/each}}
+{{#if isExpanded}}
+  {{#each fund in funds}}
+    {{render "allocationFundItem" fund}}
+  {{/each}}
+{{/if}}
