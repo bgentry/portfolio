@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
-  needs: ["portfolio", "allocationItem"],
+  needs: ["portfolio", "allocationItem", "allocationFundItem"],
 
   currentWeight: function() {
     var portfolioValue = this.get('portfolioValue'),
@@ -12,5 +12,5 @@ export default Ember.ObjectController.extend({
     return marketValue / portfolioValue;
   }.property('model', 'marketValue', 'portfolioValue'),
   marketValue: Ember.computed.alias('model.marketValue'),
-  portfolioValue: Ember.computed.alias('controllers.allocationItem.portfolioValue'),
+  portfolioValue: Ember.computed.alias('controllers.allocationFundItem.portfolioValue'),
 });

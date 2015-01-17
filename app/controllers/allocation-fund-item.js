@@ -2,9 +2,9 @@ import Ember from 'ember';
 import currency from 'currency';
 
 export default Ember.ObjectController.extend({
-  needs: "portfolio",
+  needs: ["portfolio", "allocationItem"],
 
-  allOpenLots: Ember.computed.alias("controllers.portfolio.openLots"),
+  allLots: Ember.computed.alias("parentController.lots"),
 
   currentWeight: function() {
     var portfolioValue = this.get('portfolioValue'),
@@ -15,24 +15,15 @@ export default Ember.ObjectController.extend({
     return totalValue.value / portfolioValue.value;
   }.property('portfolioValue', 'totalValue'),
 
-  funds: function() {
-    var fundIDs = [];
-    return this.get('lots').mapBy('fund').filter(function(fund) {
-      var fundID = fund.get('id');
-      return (!fundIDs.contains(fundID) && fundIDs.push(fundID));
-    });
-  }.property('lots.@each.fund'),
-
   lots: function() {
     var controller = this;
-    return this.get('allOpenLots').filter(function(lot) {
-      return lot.get('assetClass.id') === controller.get('assetClass.id');
+    return this.get('allLots').filter(function(lot) {
+      return lot.get('fund.id') === controller.get('model.id');
     });
-  }.property("assetClass.id", "allOpenLots.@each.assetClass"),
+  }.property("model.id", "allLots.@each.fund"),
 
   lotValues: Ember.computed.mapBy('lots', 'marketValue'),
   portfolioValue: Ember.computed.alias('controllers.portfolio.totalValue'),
-  targetWeight: Ember.computed.alias('model.weight'),
 
   // TODO: replace w/ a currency.js computed property
   totalValue: function() {

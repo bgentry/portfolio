@@ -1,0 +1,14 @@
+<tr>
+  <td>{{symbol}}: {{name}}</td>
+  <td>{{format-percentage currentWeight}}</td>
+  <td>-</td>
+  <td>-</td>
+  <td>{{format-currency totalValue}}</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+</tr>
+
+{{#each lot in lots}}
+  {{render "allocationLotItem" lot}}
+{{/each}}
