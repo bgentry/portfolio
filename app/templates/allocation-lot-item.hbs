@@ -1,0 +1,14 @@
+<tr>
+  <td>{{symbol}}: {{fundName}}</td>
+  <td>{{format-percentage currentWeight}}</td>
+  <td>{{quantity}}</td>
+  <td>--</td>
+  <td>{{format-currency marketValue}}</td>
+  <td>{{format-currency totalCost}}</td>
+  <td>
+    <span {{bind-attr class="isLoss:red:green"}}>
+      {{format-currency valueChange}}
+    </span>
+  </td>
+  <td>{{moment dateAcquired 'YYYY-MM-DD'}}</td>
+</tr>

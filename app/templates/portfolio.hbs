@@ -2,39 +2,39 @@
 
 <hr/>
 
-<dl>
-  <dt>Total Value</dt>
-  <dd>{{format-currency totalValue}}</dd>
-</dl>
+<h3>Holdings</h3>
+
+<table class="table-striped">
+  <thead>
+    <tr>
+      <th>Holdings</th>
+      <th>Current Weight / Count</th>
+      <th>Count</th>
+      <th>Target Weight</th>
+      <th>Value</th>
+      <th>Total Cost</th>
+      <th>Gain / Loss</th>
+      <th>Purchase Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each allocation in allocations}}
+      {{render "allocationItem" allocation}}
+    {{/each}}
+    <tr>
+      <td>
+        <dl>
+          <dt>Total</dt>
+        </dl>
+      </td>
+      <td>{{format-percentage totalWeight}}</td>
+      <td colspan=3></td>
+      <td colspan=1>{{format-currency totalValue}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <hr/>
-
-<h3>Allocations</h3>
-
-{{#if allocations}}
-  <table class="table-striped">
-    <thead>
-      <tr>
-        <th>Asset Class</th>
-        <th>Target Weight</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each allocation in allocations}}
-        <tr>
-          <td>
-            {{#link-to 'asset_class' allocation.assetClass}}
-              {{allocation.assetClassName}}
-            {{/link-to}}
-          </td>
-          <td>{{format-percentage allocation.weight}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{else}}
-<p>No allocations.</p>
-{{/if}}
 
 <h3>Open Lots</h3>
 

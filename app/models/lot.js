@@ -9,6 +9,7 @@ export default DS.Model.extend({
   assetClass: Ember.computed.alias('fund.assetClass'),
   dateAcquired: DS.attr('date'),
   dateSold: DS.attr('date'),
+  fundName: Ember.computed.alias('fund.name'),
   proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
   shareCost: DS.attr('currency'),
