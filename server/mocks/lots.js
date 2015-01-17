@@ -45,8 +45,8 @@ var LOT_FIXTURES = [{
   fund_id: "1",
   date_acquired: "2015-01-08T19:40:09Z",
   date_sold: null,
-  share_cost: 106.21,
-  quantity: 35.0,
+  share_cost: 106.00,
+  quantity: 2.1,
 }, {
   id: "7",
   portfolio_id: "1",
