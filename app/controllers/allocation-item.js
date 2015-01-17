@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import currency from 'currency';
 
 export default Ember.ObjectController.extend({
   needs: "portfolio",
