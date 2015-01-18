@@ -4,7 +4,7 @@
   .row-container {
     clear: both;
     display: table;
-    padding: 11px 0 6px;
+    padding: 8px 0 8px;
     width: 100%;
 
     .cell {
@@ -50,6 +50,15 @@
 
     .asset-class-summary, .fund-summary {
       line-height: 19px;
+    }
+
+    .asset-class.expanded {
+      margin-top: -5px;
+      padding-top: 5px;
+      margin-bottom: -5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #bbb;
+      border-top: 1px solid #bbb;
     }
 
     .asset-class-summary:hover, .asset-class.expanded .asset-class-summary,
