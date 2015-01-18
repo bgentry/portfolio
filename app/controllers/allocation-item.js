@@ -47,7 +47,9 @@ export default Ember.ObjectController.extend({
 
   actions: {
     toggleIsExpanded: function() {
-      this.toggleProperty('isExpanded');
+      if (this.get('funds').length > 0) {
+        this.toggleProperty('isExpanded');
+      }
     }
   }
 });
