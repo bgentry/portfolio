@@ -50,10 +50,10 @@ var LOT_FIXTURES = [{
 }, {
   id: "7",
   portfolio_id: "1",
-  fund_id: "4",
+  fund_id: "3",
   date_acquired: "2014-12-29T19:40:09Z",
   date_sold: null,
-  share_cost: 113.47,
+  share_cost: 31.23,
   quantity: 14.0,
 }, {
   id: "8",
