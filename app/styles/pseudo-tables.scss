@@ -1,10 +1,15 @@
 .holdings-table {
+  $table-border-color: #bbb;
+  $table-text-color: #333;
+  $table-text-hover-color: black;
+  $table-hover-background: #fcfcfc;
+
   width: 800px;
 
   .row-container {
     clear: both;
     display: table;
-    padding: 8px 0 8px;
+    padding: 8px;
     width: 100%;
 
     .cell {
@@ -24,6 +29,10 @@
       float: right;
       text-align: right;
     }
+
+    &:hover {
+      background-color: $table-hover-background;
+    }
   }
 
   .table-head {
@@ -31,12 +40,12 @@
     text-transform: uppercase;
   }
   .table-head, .holdings-list {
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid $table-border-color;
     margin-bottom: 4px;
     padding-bottom: 4px;
   }
   .holdings-list {
-    color: #333;
+    color: $table-text-color;
     font-size: 14px;
 
     .arrow {
@@ -57,13 +66,13 @@
       padding-top: 5px;
       margin-bottom: -5px;
       padding-bottom: 5px;
-      border-bottom: 1px solid #bbb;
-      border-top: 1px solid #bbb;
+      border-bottom: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
     }
 
     .asset-class-summary:hover, .asset-class.expanded .asset-class-summary,
     .fund-summary:hover, .fund.expanded .fund-summary {
-      color: black;
+      color: $table-text-hover-color;
       font-weight: bold;
 
       .arrow {
@@ -93,7 +102,7 @@
     }
   }
   .table-footer {
-    border-top: 1px solid #bbb;
+    border-top: 1px solid $table-border-color;
     text-transform: uppercase;
   }
 }
