@@ -2,6 +2,7 @@ import Ember from 'ember';
 import currency from 'currency';
 
 export default Ember.ObjectController.extend({
+  isExpanded: false,
   needs: ["portfolio", "allocationItem"],
 
   allLots: Ember.computed.alias("parentController.lots"),
@@ -39,4 +40,10 @@ export default Ember.ObjectController.extend({
     });
     return sum;
   }.property('lotValues.@each'),
+
+  actions: {
+    toggleIsExpanded: function() {
+      this.toggleProperty('isExpanded');
+    },
+  },
 });

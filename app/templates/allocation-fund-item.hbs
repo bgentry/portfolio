@@ -1,11 +1,16 @@
-<div class="fund" {{action 'toggleIsExpanded'}}>
-  <div class="row-container fund-summary">
-    <div class="cell holding-name">{{name}}</div>
+<div {{bind-attr class=":fund isExpanded:expanded"}}>
+  <div class="row-container fund-summary" {{action 'toggleIsExpanded'}}>
+    <div class="cell holding-name">
+      {{#if lots}}<span class="arrow">›</span>{{/if}}
+      {{name}}
+    </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>
     <div class="cell target-weight shares">{{quantity}} shares</div>
     <div class="cell current-value">{{format-currency totalValue}}</div>
   </div>
-  {{#each lot in lots}}
-    {{render "allocationLotItem" lot}}
-  {{/each}}
+  {{#if isExpanded}}
+    {{#each lot in lots}}
+      {{render "allocationLotItem" lot}}
+    {{/each}}
+  {{/if}}
 </div>

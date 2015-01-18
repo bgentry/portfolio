@@ -39,27 +39,52 @@
     color: #333;
     font-size: 14px;
 
-    .row-container:hover {
+    .arrow {
+      display: inline-block;
+      font-size: 19px;
+      margin-left: -15px;
+      margin-right: 5px;
+      opacity: 0;
+      vertical-align: baseline;
+    }
+
+    .asset-class-summary, .fund-summary {
+      line-height: 19px;
+    }
+
+    .asset-class-summary:hover, .asset-class.expanded .asset-class-summary,
+    .fund-summary:hover, .fund.expanded .fund-summary {
       color: black;
       font-weight: bold;
+
+      .arrow {
+        margin-left: 0px;
+        opacity: 1;
+      }
+    }
+
+    .asset-class.expanded .asset-class-summary, .fund.expanded .fund-summary {
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    .fund-summary .holding-name {
+      padding-left: 15px;
+    }
+
+    .lot {
+      .holding-name {
+        padding-left: 30px;
+      }
+      .value-change {
+        text-align: right;
+        width: 100px;
+      }
     }
   }
   .table-footer {
     border-top: 1px solid #bbb;
     text-transform: uppercase;
-  }
-
-  .fund-summary .holding-name {
-    padding-left: 10px;
-  }
-
-  .lot {
-    .holding-name {
-      padding-left: 20px;
-    }
-    .value-change {
-      text-align: right;
-      width: 100px;
-    }
   }
 }
