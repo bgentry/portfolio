@@ -30,6 +30,14 @@ var FUND_FIXTURES = [{
   expense_ratio: 0.12,
   price: 104.81,
   price_updated_at: "2015-01-12T21:00:00Z"
+}, {
+  id: "5",
+  asset_class_id: "5",
+  name: 'Vanguard Short-Term Inflation-Protected Securities ETF',
+  symbol: 'VTIP',
+  expense_ratio: 0.10,
+  price: 48.47,
+  price_updated_at: "2015-01-16T21:00:00Z"
 }]
 
 module.exports = function(app) {

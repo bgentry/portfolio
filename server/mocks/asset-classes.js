@@ -12,6 +12,10 @@ var ASSET_CLASS_FIXTURES = [{
   id: "4",
   name: "Commodities",
   fund_ids: ['3', '4']
+}, {
+  id: "5",
+  name: "Inflation-Protected Bonds",
+  fund_ids: ['5']
 }];
 
 module.exports = function(app) {

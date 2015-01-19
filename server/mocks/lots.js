@@ -63,6 +63,14 @@ var LOT_FIXTURES = [{
   date_sold: null,
   share_cost: 105.42,
   quantity: 8.0,
+}, {
+  id: "9",
+  portfolio_id: "1",
+  fund_id: "5",
+  date_acquired: "2014-01-16T19:40:09Z",
+  date_sold: null,
+  share_cost: 46.52,
+  quantity: 2.0,
 }];
 
 module.exports = function(app) {
