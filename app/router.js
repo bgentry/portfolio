@@ -11,6 +11,7 @@ Router.map(function() {
   });
 
   this.resource("lots", function() {
+    this.route("closed");
     this.route("open");
   });
 
