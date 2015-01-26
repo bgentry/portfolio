@@ -10,6 +10,8 @@ Router.map(function() {
     this.resource("asset_class", { path: "/:asset_class_id" });
   });
 
+  this.resource("lots");
+
   this.resource("portfolios", function() {
     this.resource("portfolio", { path: "/:portfolio_id" });
     this.route("new");
