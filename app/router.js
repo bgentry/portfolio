@@ -13,6 +13,7 @@ Router.map(function() {
   this.resource("lots", function() {
     this.route("closed");
     this.route("open");
+    this.route("unrealized-losses");
   });
 
   this.resource("portfolios", function() {
