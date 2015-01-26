@@ -3,12 +3,25 @@
 @import "neat";
 @import "base";
 
+@import "button-group";
 @import "nav";
 @import "pseudo-tables";
 @import "tables";
 
 section {
   @include outer-container;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered {
+  text-align: center;
+  * {
+    display: inline-block;
+  }
 }
 
 button, .button {
