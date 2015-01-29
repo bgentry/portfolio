@@ -6,19 +6,19 @@ export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
   fund: DS.belongsTo('fund', {async: true}),
 
-  assetClass: Ember.computed.alias('fund.assetClass'),
   dateAcquired: DS.attr('date'),
   dateSold: DS.attr('date'),
-  fundName: Ember.computed.alias('fund.name'),
   proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
   shareCost: DS.attr('currency'),
-  symbol: Ember.computed.alias('fund.symbol'),
 
+  assetClass: Ember.computed.alias('fund.assetClass'),
+  fundName: Ember.computed.alias('fund.name'),
   fundPrice: Ember.computed.alias('fund.price'),
   isOpen: Ember.computed.not('dateSold'),
   isClosed: Ember.computed.bool('dateSold'),
   isLoss: Ember.computed.lt('valueChange', 0),
+  symbol: Ember.computed.alias('fund.symbol'),
 
   ownedDuration: function() {
     var dateAcquired = this.get('dateAcquired'),
