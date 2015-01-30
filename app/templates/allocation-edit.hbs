@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    {{#link-to 'asset_class' allocation.assetClass}}
+      {{allocation.assetClass.name}}
+    {{/link-to}}
+  </td>
+  <td>
+    {{input value=displayWeight type="number" min="0" max="100"}}
+  </td>
+  <td>
+    <a class="button" href="#" {{action 'deleteRecord' target=allocation}}>x</a>
+  </td>
+</tr>
