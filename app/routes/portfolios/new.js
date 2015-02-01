@@ -28,8 +28,5 @@ export default Ember.Route.extend(DataRoute, {
         });
       }
     });
-  },
-  setupController: function(controller, model) {
-    controller.set('model', model);
   }
 });
