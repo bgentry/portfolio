@@ -23,11 +23,11 @@ export default Ember.ObjectController.extend({
   remainingAssetClasses: Ember.computed.setDiff('allAssetClasses', 'model.assetClasses'),
 
   actions: {
-    create: function() {
-      var newPortfolio = this.get('model');
+    save: function() {
+      var portfolio = this.get('model');
       var self = this;
-      newPortfolio.save().then(function() {
-        self.transitionToRoute('portfolio', newPortfolio);
+      portfolio.save().then(function() {
+        self.transitionToRoute('portfolio', portfolio);
       });
     }
   }

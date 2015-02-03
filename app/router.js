@@ -17,7 +17,9 @@ Router.map(function() {
   });
 
   this.resource("portfolios", function() {
-    this.resource("portfolio", { path: "/:portfolio_id" });
+    this.resource("portfolio", { path: "/:portfolio_id" }, function() {
+      this.route("edit");
+    });
     this.route("new");
   });
 });

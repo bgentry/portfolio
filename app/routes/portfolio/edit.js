@@ -2,12 +2,10 @@ import Ember from 'ember';
 import DataRoute from 'ember-data-route/mixins/data-route';
 
 export default Ember.Route.extend(DataRoute, {
-  controllerName: 'portfolio/edit',
   model: function(params) {
-    return this.store.createRecord('portfolio', params);
-  },
-  renderTemplate: function() {
-    this.render('portfolio/edit')
+    return this.modelFor('portfolio');
+    // TODO: why does the following not work? why is params empty?
+    // return this.store.find('portfolio', params.portfolio_id);
   },
   resetController: function() {
     this._super();
@@ -32,5 +30,5 @@ export default Ember.Route.extend(DataRoute, {
         });
       }
     });
-  }
+  },
 });
