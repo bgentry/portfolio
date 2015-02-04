@@ -21,6 +21,7 @@ export default Ember.ObjectController.extend({
   }.observes('assetClassToAdd'),
 
   remainingAssetClasses: Ember.computed.setDiff('allAssetClasses', 'model.assetClasses'),
+  remainingAssetClassesIsEmpty: Ember.computed.empty('remainingAssetClasses'),
 
   actions: {
     save: function() {
