@@ -47,11 +47,11 @@
         {{#each lot in controller}}
           <tr>
             <td>{{lot.fund.symbol}}</td>
-            <td>{{moment lot.dateAcquired 'YYYY-MM-DD'}}</td>
+            <td>{{moment lot.acquiredAt 'YYYY-MM-DD'}}</td>
             {{#if showSoldColumns}}
               <td>
-                {{#if lot.dateSold}}
-                  {{moment lot.dateSold 'YYYY-MM-DD'}}
+                {{#if lot.soldAt}}
+                  {{moment lot.soldAt 'YYYY-MM-DD'}}
                 {{/if}}
               </td>
             {{/if}}

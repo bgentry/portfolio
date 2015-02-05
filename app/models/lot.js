@@ -6,33 +6,33 @@ export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
   fund: DS.belongsTo('fund', {async: true}),
 
-  dateAcquired: DS.attr('date'),
-  dateSold: DS.attr('date'),
+  acquiredAt: DS.attr('date'),
   proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
   shareCost: DS.attr('currency'),
+  soldAt: DS.attr('date'),
 
   assetClass: Ember.computed.alias('fund.assetClass'),
   fundName: Ember.computed.alias('fund.name'),
   fundPrice: Ember.computed.alias('fund.price'),
-  isOpen: Ember.computed.not('dateSold'),
-  isClosed: Ember.computed.bool('dateSold'),
+  isOpen: Ember.computed.not('soldAt'),
+  isClosed: Ember.computed.bool('soldAt'),
   isLoss: Ember.computed.lt('valueChange', 0),
   symbol: Ember.computed.alias('fund.symbol'),
 
   ownedDuration: function() {
-    var dateAcquired = this.get('dateAcquired'),
-        dateSold = this.get('dateSold');
-    if (!dateAcquired) {
+    var acquiredAt = this.get('acquiredAt'),
+        soldAt = this.get('soldAt');
+    if (!acquiredAt) {
       return moment.duration();
     }
-    if (!dateSold) {
-      dateSold = new Date();
+    if (!soldAt) {
+      soldAt = new Date();
     }
-    dateAcquired = moment(dateAcquired).startOf('day');
-    dateSold = moment(dateSold).startOf('day');
-    return moment.duration(dateSold - dateAcquired);
-  }.property('dateAcquired', 'dateSold'),
+    acquiredAt = moment(acquiredAt).startOf('day');
+    soldAt = moment(soldAt).startOf('day');
+    return moment.duration(soldAt - acquiredAt);
+  }.property('acquiredAt', 'soldAt'),
   isShortTerm: Ember.computed.lt('ownedDuration', moment.duration(1, 'year')),
   isLongTerm: Ember.computed.gte('ownedDuration', moment.duration(1, 'year')),
 
