@@ -4,6 +4,7 @@ import currency from 'currency';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
+  taxable: DS.attr('boolean', {defaultValue: true}),
   allocations: DS.hasMany('allocations'),
   lots: DS.hasMany('lots', {async: true}),
 

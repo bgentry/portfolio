@@ -1,6 +1,7 @@
 var PORTFOLIO_FIXTURES = [{
   id: "1",
   name: "Retirement",
+  taxable: false,
   allocations: [{
     id: "1",
     asset_class_id: "1",
@@ -22,9 +23,11 @@ var PORTFOLIO_FIXTURES = [{
 }, {
   id: "2",
   name: "Safety Net",
+  taxable: true,
 }, {
   id: "3",
-  name: "Aggressive Growth"
+  name: "Aggressive Growth",
+  taxable: true,
 }];
 
 module.exports = function(app) {

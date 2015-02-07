@@ -2,6 +2,10 @@
 
 <hr/>
 
+<span {{bind-attr class="taxable:badge-success:badge-notice"}}>
+  {{#if taxable}}Taxable{{else}}Non-taxable{{/if}}
+</span>
+
 <div class="holdings-table">
   <div class="row-container table-head">
     <div class="cell holding-name">Holding</div>
