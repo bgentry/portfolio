@@ -7,7 +7,10 @@
       {{/link-to}}
     </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>
-    <div class="cell target-weight">{{format-percentage targetWeight}}</div>
+    <div class="cell weight-bar">
+      {{graph-bar value=currentWeight maxValue=50 height=19 class="current-weight-bar"}}
+      {{format-percentage targetWeight}}
+    </div>
     <div class="cell current-value">{{format-currency totalValue}}</div>
   </div>
 

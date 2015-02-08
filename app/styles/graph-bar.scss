@@ -1,0 +1,9 @@
+.graph-bar {
+  height: 19px;
+
+  &.current-weight-bar {
+    rect {
+      fill: $light-green;
+    }
+  }
+}
