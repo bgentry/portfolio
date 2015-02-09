@@ -1,9 +1,14 @@
 .graph-bar {
+  float: left;
   height: 19px;
 
-  &.current-weight-bar {
-    rect {
-      fill: $light-green;
-    }
+  &.current-weight-bar rect {
+    fill: $light-green;
+  }
+  &.drift-bar.positive rect {
+    fill: darken($light-green, 40%);
+  }
+  &.drift-bar.negative rect {
+    fill: lighten(tomato, 20%);
   }
 }

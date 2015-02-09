@@ -20,14 +20,28 @@
       width: 300px;
     }
 
-    .current-weight, .target-weight {
-      padding-right: 20px;
+    .current-weight {
       text-align: right;
       width: 120px;
     }
 
     .weight-graph {
+      margin-left: 20px;
       width: 120px;
+
+      .target-bar {
+        float: left;
+        top: -3px;
+        position: relative;
+        height: 25px;
+        width: 1px;
+        margin-right: -1px;
+
+        background-color: $dark-gray;
+      }
+      .drift-amount {
+        margin-left: 4px;
+      }
     }
 
     .current-value {

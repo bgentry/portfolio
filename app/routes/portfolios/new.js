@@ -7,7 +7,7 @@ export default Ember.Route.extend(DataRoute, {
     return this.store.createRecord('portfolio', params);
   },
   renderTemplate: function() {
-    this.render('portfolio/edit')
+    this.render('portfolio/edit');
   },
   resetController: function() {
     this._super();

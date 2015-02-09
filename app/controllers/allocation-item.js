@@ -15,6 +15,18 @@ export default Ember.ObjectController.extend({
     }
     return totalValue.value / portfolioValue.value;
   }.property('portfolioValue', 'totalValue'),
+  currentWeightUpToTarget: function() {
+    return Math.min(this.get('currentWeight'), this.get('targetWeight'));
+  }.property('currentWeight', 'targetWeight'),
+
+  drift: function() {
+    return this.get('currentWeight') - this.get('targetWeight');
+  }.property('currentWeight', 'targetWeight'),
+
+  driftAbsoluteValue: function() {
+    return Math.abs(this.get('drift'));
+  }.property('drift'),
+  driftIsPositive: Ember.computed.gte('drift', 0.0),
 
   funds: function() {
     var fundIDs = [];

@@ -7,9 +7,19 @@
       {{/link-to}}
     </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>
-    <div class="cell weight-bar">
-      {{graph-bar value=currentWeight maxValue=50 height=19 class="current-weight-bar"}}
-      {{format-percentage targetWeight}}
+    <div class="cell weight-graph">
+      <!-- TODO: figure out maxValue based on highest currentWeight -->
+      {{graph-bar value=currentWeightUpToTarget maxValue=50 height=19 class="current-weight-bar"}}
+      {{#if driftIsPositive}}
+        <span class="target-bar"></span>
+        {{graph-bar value=driftAbsoluteValue maxValue=50 height=19 class="drift-bar positive"}}
+      {{else}}
+        {{graph-bar value=driftAbsoluteValue maxValue=50 height=19 class="drift-bar negative"}}
+        <span class="target-bar"></span>
+      {{/if}}
+      <span class="drift-amount">
+        {{format-percentage drift}}
+      </span>
     </div>
     <div class="cell current-value">{{format-currency totalValue}}</div>
   </div>
