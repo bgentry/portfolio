@@ -2,7 +2,7 @@ import Ember from 'ember';
 import DataRoute from 'ember-data-route/mixins/data-route';
 
 export default Ember.Route.extend(DataRoute, {
-  model: function(params) {
+  model: function() {
     return this.modelFor('portfolio');
     // TODO: why does the following not work? why is params empty?
     // return this.store.find('portfolio', params.portfolio_id);

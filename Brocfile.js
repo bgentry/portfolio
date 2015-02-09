@@ -5,6 +5,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   sassOptions: {
     includePaths: require('node-neat').with('app/styles/base')
+  },
+  vendorFiles: {
+    'handlebars.js': null
   }
 });
 
