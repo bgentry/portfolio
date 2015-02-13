@@ -34,6 +34,7 @@
             <th>Date Sold</th>
           {{/if}}
           <th>Quantity</th>
+          <th>Sold</th>
           <th>Share Cost</th>
           <th>Total Cost</th>
           {{#if showSoldColumns}}
@@ -56,14 +57,15 @@
               </td>
             {{/if}}
             <td>{{lot.quantity}}</td>
+            <td>{{lot.quantitySold}}</td>
             <td>{{format-currency lot.shareCost}}</td>
             <td>{{format-currency lot.totalCost}}</td>
             {{#if showSoldColumns}}
-              <td>{{format-currency lot.proceeds}}</td>
+              <td>TODO: used to be proceeds...</td>
             {{/if}}
             <td>
               <span {{bind-attr class="lot.isLoss:red:green"}}>
-                {{format-currency lot.valueChange}}
+                TODO: used to be value change
               </span>
             </td>
             <td>

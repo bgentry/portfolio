@@ -23,7 +23,7 @@ export default Ember.ObjectController.extend({
     });
   }.property("model.id", "allLots.@each.fund"),
 
-  lotQuantities: Ember.computed.mapBy('lots', 'quantity'),
+  lotQuantities: Ember.computed.mapBy('lots', 'quantityRemaining'),
   lotValues: Ember.computed.mapBy('lots', 'marketValue'),
   name: function() {
     return this.get('symbol') + ": " + this.model.get('name');

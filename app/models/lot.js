@@ -1,50 +1,47 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import moment from 'moment';
+import currency from 'currency';
 
 export default DS.Model.extend({
   portfolio: DS.belongsTo('portfolio', {async: true}),
   fund: DS.belongsTo('fund', {async: true}),
+  sells: DS.hasMany('sells', {async: true}),
 
   acquiredAt: DS.attr('date'),
-  proceeds: DS.attr('currency'),
   quantity: DS.attr('number'),
+  quantitySold: DS.attr('number'),
   shareCost: DS.attr('currency'),
-  soldAt: DS.attr('date'),
 
   assetClass: Ember.computed.alias('fund.assetClass'),
   fundName: Ember.computed.alias('fund.name'),
   fundPrice: Ember.computed.alias('fund.price'),
-  isOpen: Ember.computed.not('soldAt'),
-  isClosed: Ember.computed.bool('soldAt'),
   isLoss: Ember.computed.lt('valueChange', 0),
+  isOpen: Ember.computed.not('isClosed'),
+  isClosed: function() {
+    return this.get('quantity') === this.get('quantitySold');
+  }.property('quantity', 'quantitySold'),
+  isUnrealizedLoss: function() {
+    if (!this.get('isOpen')) {
+      return false;
+    }
+    var shareCost = this.get('shareCost') || currency(""),
+        fundPrice = this.get('fundPrice') || currency("");
+    var priceChange = shareCost.subtract(fundPrice);
+    return priceChange < 0;
+  }.property('isOpen', 'shareCost', 'fundPrice'),
   symbol: Ember.computed.alias('fund.symbol'),
 
-  ownedDuration: function() {
-    var acquiredAt = this.get('acquiredAt'),
-        soldAt = this.get('soldAt');
-    if (!acquiredAt) {
-      return moment.duration();
-    }
-    if (!soldAt) {
-      soldAt = new Date();
-    }
-    acquiredAt = moment(acquiredAt).startOf('day');
-    soldAt = moment(soldAt).startOf('day');
-    return moment.duration(soldAt - acquiredAt);
-  }.property('acquiredAt', 'soldAt'),
-  isShortTerm: Ember.computed.lt('ownedDuration', moment.duration(1, 'year')),
-  isLongTerm: Ember.computed.gte('ownedDuration', moment.duration(1, 'year')),
+  quantityRemaining: function() {
+    var bought = this.get('quantity'),
+        sold = this.get('quantitySold') || 0;
+    return bought - sold;
+  }.property('quantity', 'quantitySold'),
 
   // TODO: clean all these up to use well-factored computed properties:
   marketValue: function() {
-    var fundPrice = this.get('fundPrice'),
-       quantity = this.get('quantity');
-    if (typeof(fundPrice) === 'undefined' || typeof(quantity) === 'undefined') {
-      return null;
-    }
-
-    return fundPrice.multiply(quantity);
+    var fundPrice = this.get('fundPrice') || currency(""),
+       remaining = this.get('quantityRemaining') || currency("");
+    return fundPrice.multiply(remaining);
   }.property('fundPrice', 'quantity'),
   totalCost: function() {
     var shareCost = this.get('shareCost'),
@@ -55,21 +52,9 @@ export default DS.Model.extend({
 
     return shareCost.multiply(quantity);
   }.property('quantity', 'shareCost'),
-  valueChange: function() {
-    var isOpen = this.get('isOpen'),
-        totalCost = this.get('totalCost');
-    if (isOpen) {
-      var marketValue = this.get('marketValue');
-      if (marketValue == null) {
-        return null;
-      }
-      return marketValue.subtract(totalCost || 0);
-    }
 
-    var proceeds = this.get('proceeds');
-    if (proceeds == null) {
-      return null;
-    }
-    return proceeds.subtract(totalCost || 0);
-  }.property('isOpen', 'marketValue', 'proceeds', 'totalCost')
+  valueChange: function() {
+    // TODO, may need to take sells into account
+    return this.get('fundPrice').subtract(this.get('shareCost'));
+  }.property('fundPrice', 'shareCost')
 });
