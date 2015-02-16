@@ -18,7 +18,9 @@ export default DS.Model.extend({
   isLoss: Ember.computed.lt('valueChange', 0),
   isOpen: Ember.computed.not('isClosed'),
   isClosed: function() {
-    return this.get('quantity') === this.get('quantitySold');
+    var quantity = this.get('quantity'),
+        sold = this.get('quantitySold');
+    return (sold > quantity || sold === quantity);
   }.property('quantity', 'quantitySold'),
   isUnrealizedLoss: function() {
     if (!this.get('isOpen')) {
