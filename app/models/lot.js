@@ -44,7 +44,7 @@ export default DS.Model.extend({
     var fundPrice = this.get('fundPrice') || currency(""),
        remaining = this.get('quantityRemaining') || currency("");
     return fundPrice.multiply(remaining);
-  }.property('fundPrice', 'quantity'),
+  }.property('fundPrice', 'quantityRemaining'),
   totalCost: function() {
     var shareCost = this.get('shareCost'),
        quantity = this.get('quantity');
