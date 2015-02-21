@@ -33,7 +33,7 @@ export default DS.Model.extend({
     if (typeof(price) === 'undefined' || typeof(quantity) === 'undefined') {
       return null;
     }
-    return shareCost.multiply(quantity);
+    return price.multiply(quantity);
   }.property('quantity', 'price'),
 
   totalCost: function() {

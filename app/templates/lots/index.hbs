@@ -12,8 +12,8 @@
         {{#link-to 'lots.open'}}
           <span class="button-group-item">Open</span>
         {{/link-to}}
-        {{#link-to 'lots.unrealized-losses'}}
-          <span class="button-group-item">Unrealized Losses</span>
+        {{#link-to 'lots.unrealized-taxable-losses'}}
+          <span class="button-group-item">Unrealized Taxable Losses</span>
         {{/link-to}}
         {{#link-to 'lots.closed'}}
           <span class="button-group-item">Closed</span>
@@ -30,17 +30,11 @@
         <tr>
           <th>Fund</th>
           <th>Date Acquired</th>
-          {{#if showSoldColumns}}
-            <th>Date Sold</th>
-          {{/if}}
           <th>Quantity</th>
           <th>Sold</th>
+          <th>Remaining</th>
           <th>Share Cost</th>
-          <th>Total Cost</th>
-          {{#if showSoldColumns}}
-            <th>Proceeds</th>
-          {{/if}}
-          <th>Gain / Loss</th>
+          <th>Unrealized Gain / Loss</th>
           <th>Term</th>
         </tr>
       </thead>
@@ -49,23 +43,13 @@
           <tr>
             <td>{{lot.fund.symbol}}</td>
             <td>{{moment lot.acquiredAt 'YYYY-MM-DD'}}</td>
-            {{#if showSoldColumns}}
-              <td>
-                {{#if lot.soldAt}}
-                  {{moment lot.soldAt 'YYYY-MM-DD'}}
-                {{/if}}
-              </td>
-            {{/if}}
             <td>{{lot.quantity}}</td>
             <td>{{lot.quantitySold}}</td>
+            <td>{{lot.quantityRemaining}}</td>
             <td>{{format-currency lot.shareCost}}</td>
-            <td>{{format-currency lot.totalCost}}</td>
-            {{#if showSoldColumns}}
-              <td>TODO: used to be proceeds...</td>
-            {{/if}}
             <td>
               <span {{bind-attr class="lot.isLoss:red:green"}}>
-                TODO: used to be value change
+                {{format-currency lot.unrealizedValueChange}}
               </span>
             </td>
             <td>
