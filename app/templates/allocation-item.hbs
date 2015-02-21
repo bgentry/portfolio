@@ -3,7 +3,7 @@
     <div class="cell holding-name">
       {{#if funds}}<span class="arrow">›</span>{{/if}}
       {{#link-to 'asset_class' allocation.assetClass}}
-        {{assetClassName}}
+        {{model.assetClassName}}
       {{/link-to}}
     </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>

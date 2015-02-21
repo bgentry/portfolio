@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import currency from 'currency';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   isExpanded: false,
   needs: "portfolio",
 
-  allOpenLots: Ember.computed.alias("controllers.portfolio.openLots"),
+  allOpenLots: Ember.computed.alias("controllers.portfolio.model.openLots"),
 
   currentWeight: function() {
     var portfolioValue = this.get('portfolioValue'),
@@ -39,12 +39,12 @@ export default Ember.ObjectController.extend({
   lots: function() {
     var controller = this;
     return this.get('allOpenLots').filter(function(lot) {
-      return lot.get('assetClass.id') === controller.get('assetClass.id');
+      return lot.get('assetClass.id') === controller.get('model.assetClass.id');
     });
-  }.property("assetClass.id", "allOpenLots.@each.assetClass"),
+  }.property("model.assetClass.id", "allOpenLots.@each.assetClass"),
 
   lotValues: Ember.computed.mapBy('lots', 'marketValue'),
-  portfolioValue: Ember.computed.alias('controllers.portfolio.totalValue'),
+  portfolioValue: Ember.computed.alias('controllers.portfolio.model.totalValue'),
   targetWeight: Ember.computed.alias('model.weight'),
 
   // TODO: replace w/ a currency.js computed property

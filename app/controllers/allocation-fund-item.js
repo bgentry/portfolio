@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import currency from 'currency';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   isExpanded: false,
   needs: ["portfolio", "allocationItem"],
 
@@ -26,9 +26,9 @@ export default Ember.ObjectController.extend({
   lotQuantities: Ember.computed.mapBy('lots', 'quantityRemaining'),
   lotValues: Ember.computed.mapBy('lots', 'marketValue'),
   name: function() {
-    return this.get('symbol') + ": " + this.model.get('name');
-  }.property('model.name', 'symbol'),
-  portfolioValue: Ember.computed.alias('controllers.portfolio.totalValue'),
+    return this.get('model.symbol') + ": " + this.model.get('name');
+  }.property('model.name', 'model.symbol'),
+  portfolioValue: Ember.computed.alias('controllers.portfolio.model.totalValue'),
   quantity: Ember.computed.sum('lotQuantities'),
 
   // TODO: replace w/ a currency.js computed property

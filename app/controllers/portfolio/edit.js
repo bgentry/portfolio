@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   allAssetClasses: function() {
     return this.store.find('asset-class');
   }.property(),

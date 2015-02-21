@@ -1,4 +1,4 @@
-<h2 id="title">Asset Class: {{name}}</h2>
+<h2 id="title">Asset Class: {{model.name}}</h2>
 
 <h3>Funds</h3>
 
@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each fund in funds}}
+    {{#each fund in model.funds}}
       <tr>
         <td>{{fund.name}}</td>
         <td>{{fund.symbol}}</td>

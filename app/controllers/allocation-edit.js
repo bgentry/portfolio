@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   displayWeight: function(key, value) {
     if (arguments.length > 1) { // setter
-      this.set('weight', value / 100);
+      this.set('model.weight', value / 100);
     }
-    return this.get('weight') * 100;
-  }.property('weight')
+    return this.get('model.weight') * 100;
+  }.property('model.weight')
 });

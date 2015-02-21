@@ -1,9 +1,9 @@
-<h2 id="title">Portfolio: {{name}}</h2>
+<h2 id="title">Portfolio: {{model.name}}</h2>
 
 <hr/>
 
-<span {{bind-attr class="taxable:badge-success:badge-notice"}}>
-  {{#if taxable}}Taxable{{else}}Non-taxable{{/if}}
+<span {{bind-attr class="model.taxable:badge-success:badge-notice"}}>
+  {{#if model.taxable}}Taxable{{else}}Non-taxable{{/if}}
 </span>
 
 <div class="holdings-table">
@@ -13,7 +13,7 @@
     <div class="cell current-value">Current Value</div>
   </div>
   <div class="holdings-list">
-    {{#each allocation in allocations}}
+    {{#each allocation in model.allocations}}
       {{render "allocationItem" allocation}}
     {{/each}}
     <!-- TODO: show lots that aren't among allocations -->
@@ -21,7 +21,7 @@
   <div class="row-container table-footer">
     <div class="cell holding-name">Total</div>
     <div class="cell current-weight">{{format-percentage totalWeight}}</div>
-    <div class="cell current-value">{{format-currency totalValue}}</div>
+    <div class="cell current-value">{{format-currency model.totalValue}}</div>
   </div>
 </div>
 
