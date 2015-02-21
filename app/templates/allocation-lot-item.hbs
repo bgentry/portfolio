@@ -3,8 +3,8 @@
   <div class="cell current-weight">{{format-percentage currentWeight}}</div>
   <div class="cell weight-graph shares">{{format-decimal model.quantityRemaining 4}} shares</div>
   <div class="cell value-change">
-    <span {{bind-attr class="model.isLoss:red:green"}}>
-      {{format-currency model.valueChange}}
+    <span class="{{if model.isLoss 'red' 'green'}}">
+      {{format-currency model.unrealizedValueChange}}
     </span>
   </div>
   <div class="cell current-value">{{format-currency marketValue}}</div>

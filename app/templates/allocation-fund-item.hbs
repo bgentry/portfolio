@@ -1,7 +1,9 @@
-<div {{bind-attr class=":fund isExpanded:expanded"}}>
+<div class="{{if fund.isExpanded 'expanded'}}">
   <div class="row-container fund-summary" {{action 'toggleIsExpanded'}}>
     <div class="cell holding-name">
-      {{#if lots}}<span class="arrow">›</span>{{/if}}
+      {{#if lots}}
+        <span class="arrow">›</span>
+      {{/if}}
       {{name}}
     </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>

@@ -2,8 +2,8 @@
 
 <hr/>
 
-<span {{bind-attr class="model.taxable:badge-success:badge-notice"}}>
-  {{#if model.taxable}}Taxable{{else}}Non-taxable{{/if}}
+<span class="{{if model.taxable 'badge-success' 'badge-notice'}}">
+  {{if model.taxable "Taxable" "Non-taxable"}}
 </span>
 
 <div class="holdings-table">

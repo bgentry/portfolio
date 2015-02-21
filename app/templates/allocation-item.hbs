@@ -1,7 +1,9 @@
-<div {{bind-attr class=":asset-class isExpanded:expanded"}}>
+<div class="asset-class {{if isExpanded 'expanded'}}">
   <div class="row-container asset-class-summary" {{action 'toggleIsExpanded'}}>
     <div class="cell holding-name">
-      {{#if funds}}<span class="arrow">›</span>{{/if}}
+      {{#if funds}}
+        <span class="arrow">›</span>
+      {{/if}}
       {{#link-to 'asset_class' allocation.assetClass}}
         {{model.assetClassName}}
       {{/link-to}}

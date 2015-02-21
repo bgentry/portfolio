@@ -48,7 +48,7 @@
             <td>{{format-decimal lot.quantityRemaining 4}}</td>
             <td>{{format-currency lot.shareCost}}</td>
             <td>
-              <span {{bind-attr class="lot.isLoss:red:green"}}>
+              <span class="{{if lot.isLoss 'red' 'green'}}">
                 {{format-currency lot.unrealizedValueChange}}
               </span>
             </td>
