@@ -43,9 +43,9 @@
           <tr>
             <td>{{lot.fund.symbol}}</td>
             <td>{{moment lot.acquiredAt 'YYYY-MM-DD'}}</td>
-            <td>{{lot.quantity}}</td>
-            <td>{{lot.quantitySold}}</td>
-            <td>{{lot.quantityRemaining}}</td>
+            <td>{{format-decimal lot.quantity 4}}</td>
+            <td>{{format-decimal lot.quantitySold 4}}</td>
+            <td>{{format-decimal lot.quantityRemaining 4}}</td>
             <td>{{format-currency lot.shareCost}}</td>
             <td>
               <span {{bind-attr class="lot.isLoss:red:green"}}>

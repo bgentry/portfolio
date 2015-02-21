@@ -1,7 +1,7 @@
 <div class="row-container lot">
   <div class="cell holding-name">{{moment acquiredAt 'YYYY-MM-DD'}}</div>
   <div class="cell current-weight">{{format-percentage currentWeight}}</div>
-  <div class="cell weight-graph shares">{{quantityRemaining}} shares</div>
+  <div class="cell weight-graph shares">{{format-decimal quantityRemaining 4}} shares</div>
   <div class="cell value-change">
     <span {{bind-attr class="isLoss:red:green"}}>
       {{format-currency valueChange}}

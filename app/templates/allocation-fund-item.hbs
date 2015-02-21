@@ -5,7 +5,7 @@
       {{name}}
     </div>
     <div class="cell current-weight">{{format-percentage currentWeight}}</div>
-    <div class="cell weight-graph shares">{{quantity}} shares</div>
+    <div class="cell weight-graph shares">{{format-decimal quantity 4}} shares</div>
     <div class="cell current-value">{{format-currency totalValue}}</div>
   </div>
   {{#if isExpanded}}
