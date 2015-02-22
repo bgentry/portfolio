@@ -1,0 +1,16 @@
+<div class="row-container table-head">
+  <div class="cell holding-name">Holding</div>
+  <div class="cell current-weight">Current Weight</div>
+  <div class="cell current-value">Current Value</div>
+</div>
+<div class="holdings-list">
+  {{#each allocation in allocations}}
+    {{render "allocationItem" allocation}}
+  {{/each}}
+  <!-- TODO: show lots that aren't among allocations -->
+</div>
+<div class="row-container table-footer">
+  <div class="cell holding-name">Total</div>
+  <div class="cell current-weight">{{format-percentage totalWeight}}</div>
+  <div class="cell current-value">{{format-currency totalValue}}</div>
+</div>
