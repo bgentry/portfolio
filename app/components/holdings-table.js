@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 
   allocations: Ember.computed.alias('portfolio.allocations'),
   lots: Ember.computed.alias('portfolio.lots'),
+  allocationsSorting: ['weight:desc'],
+  sortedAllocations: Ember.computed.sort('allocations', 'allocationsSorting'),
 
   allWeights: Ember.computed.mapBy('allocations', 'weight'),
   totalValue: Ember.computed.alias('portfolio.totalValue'),

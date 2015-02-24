@@ -4,7 +4,7 @@
   <div class="cell current-value">Current Value</div>
 </div>
 <div class="holdings-list">
-  {{#each allocation in allocations}}
+  {{#each allocation in sortedAllocations}}
     {{render "allocationItem" allocation}}
   {{/each}}
   <!-- TODO: show lots that aren't among allocations -->
