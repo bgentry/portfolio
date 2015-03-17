@@ -1,7 +1,7 @@
-@import "bourbon";
-@import "neat-helpers";
-@import "neat";
-@import "base";
+@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "bower_components/neat/app/assets/stylesheets/neat";
+@import "bower_components/neat/app/assets/stylesheets/neat-helpers";
+@import "base/base";
 
 @import "badges";
 @import "button-group";
